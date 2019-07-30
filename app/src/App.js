@@ -3,11 +3,9 @@ import React, { Component } from 'react'
 import {
   Button,
   Container,
-  Divider,
   Grid,
   Header,
   Icon,
-  Image,
   List,
   Menu,
   Responsive,
@@ -33,7 +31,7 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as='h1'
-      content='Southend Solutions, LLC'
+      content='Southend Solutions'
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -44,7 +42,7 @@ const HomepageHeading = ({ mobile }) => (
     />
     <Header
       as='h2'
-      content='We build cloud-centric data applications.'
+      content='We build data-centric cloud applications.'
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -53,7 +51,7 @@ const HomepageHeading = ({ mobile }) => (
       }}
     />
     <Button primary size='huge' href='#contact'>
-      Drop a line
+      Get in touch
       <Icon name='right arrow' />
     </Button>
   </Container>
@@ -101,7 +99,6 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a' active>
                   Home
                 </Menu.Item>
-                <Menu.Item as='a' href='#work'>Work</Menu.Item>
                 <Menu.Item as='a' href='#company'>Company</Menu.Item>
                 <Menu.Item as='a' href='#contact'>Contact</Menu.Item>
               </Container>
@@ -148,9 +145,8 @@ class MobileContainer extends Component {
           <Menu.Item as='a' active>
             Home
           </Menu.Item>
-          <Menu.Item as='a' href='#work'>Work</Menu.Item>
-          <Menu.Item as='a' href='#company'>Company</Menu.Item>
-          <Menu.Item as='a' href='#contact'>Contact</Menu.Item>
+          <Menu.Item as='a' href='#company' onClick={this.handleSidebarHide}>Company</Menu.Item>
+          <Menu.Item as='a' href='#contact' onClick={this.handleSidebarHide}>Contact</Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -164,14 +160,6 @@ class MobileContainer extends Component {
               <Menu inverted pointing secondary size='large'>
                 <Menu.Item onClick={this.handleToggle}>
                   <Icon name='sidebar' />
-                </Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
                 </Menu.Item>
               </Menu>
             </Container>
@@ -202,46 +190,23 @@ ResponsiveContainer.propTypes = {
 
 const HomepageLayout = () => (
   <ResponsiveContainer>
-    <Segment id='work' style={{ padding: '8em 0em' }} vertical>
+    <Segment id='company' style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Companies build things quick
+              We help companies build their dreams through Rapid Cloud Enablement.
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              filler
+              We'll jump-start your data applications with our expertise and partner with you to grow your business.
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='/images/wireframe/white-image.png' />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column textAlign='center'>
-            <Button size='huge'>Check Them Out</Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-
-    <Segment id='company' style={{ padding: '0em' }} vertical>
-      <Grid celled='internally' columns='equal' stackable>
-        <Grid.Row textAlign='center'>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "What a Company"
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
-          </Grid.Column>
-          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "I shouldn't have gone with their competitor."
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              <Image avatar src='/images/avatar/large/nan.jpg' />
-              <b>Nan</b> Chief Fun Officer Acme Toys
-            </p>
+            <Icon.Group size='huge'>
+              <Icon circular inverted color='blue' name='cloud' size='huge'/>
+              <Icon inverted color='blue' size='large' name='square outline'/>
+              <Icon inverted color='blue' size='small' name='check'/>
+            </Icon.Group>
           </Grid.Column>
         </Grid.Row>
       </Grid>
@@ -250,14 +215,13 @@ const HomepageLayout = () => (
     <Segment id='contact' style={{ padding: '8em 0em' }} vertical>
       <Container text>
         <Header as='h3' style={{ fontSize: '2em' }}>
-          Contact us
+          How can we help?
         </Header>
         <p style={{ fontSize: '1.33em' }}>
-          this will be a form
+          We'll be happy to answer any questions you may have.
         </p>
-
-        <Button as='a' size='large'>
-          Submit
+        <Button as='a' size='large' href={`mailto:southendsolutionsclt@gmail.com`}>
+          Click here to email us
         </Button>
       </Container>
     </Segment>
@@ -269,7 +233,6 @@ const HomepageLayout = () => (
             <Grid.Column width={3}>
               <Header inverted as='h4' content='About' />
               <List link inverted>
-                <List.Item as='a' href='#work'>Work</List.Item>
                 <List.Item as='a' href='#company'>Company</List.Item>
                 <List.Item as='a' href='#contact'>Contact</List.Item>
               </List>
@@ -279,7 +242,7 @@ const HomepageLayout = () => (
                 Southend Solutions, LLC
               </Header>
               <p>
-                more content
+                Building data-centric cloud applications from the heart of Southend Charlotte, North Carolina.
               </p>
             </Grid.Column>
           </Grid.Row>
